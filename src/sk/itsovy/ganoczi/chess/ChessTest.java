@@ -94,6 +94,10 @@ class ChessTest {
         assertNull(chess.normalize("10j"));
         assertNull(chess.normalize("10@"));
         assertNull(chess.normalize("2@"));
+        assertNull(chess.normalize(""));
+        assertNull(chess.normalize("  "));
+        assertNull(chess.normalize(null));
+        assertNull(chess.normalize("x9"));
     }
 
     @org.junit.jupiter.api.Test
@@ -117,6 +121,10 @@ class ChessTest {
         assertFalse(chess.checkBishop("1c","7c"));
         assertFalse(chess.checkBishop("1f","3f"));
         assertFalse(chess.checkBishop("1f","5h"));
+        assertFalse(chess.checkBishop("1f",""));
+        assertFalse(chess.checkBishop("1f"," "));
+        assertFalse(chess.checkBishop("1f",null));
+        assertFalse(chess.checkBishop("1f","9x"));
     }
 
     @org.junit.jupiter.api.Test
@@ -135,6 +143,11 @@ class ChessTest {
 
         assertFalse(chess.checkKing("e3","5e"));
         assertFalse(chess.checkKing("e3","5f"));
+        assertFalse(chess.checkKing("e3","x9"));
+        assertFalse(chess.checkKing("e3","99"));
+        assertFalse(chess.checkKing("e3",""));
+        assertFalse(chess.checkKing("e3"," "));
+        assertFalse(chess.checkKing("e3",null));
     }
 
     @org.junit.jupiter.api.Test
@@ -158,6 +171,11 @@ class ChessTest {
         assertFalse(chess.checkQueen("d4","c2"));
         assertFalse(chess.checkQueen("d4","2e"));
         assertFalse(chess.checkQueen("d4","6a"));
+        assertFalse(chess.checkQueen("d4","66"));
+        assertFalse(chess.checkQueen("d4","9x"));
+        assertFalse(chess.checkQueen("d4",""));
+        assertFalse(chess.checkQueen("d4"," "));
+        assertFalse(chess.checkQueen("d4",null));
     }
 
     @org.junit.jupiter.api.Test
@@ -189,6 +207,8 @@ class ChessTest {
         assertFalse(chess.checkRook("d5","d18"));
         assertFalse(chess.checkRook("d5","25"));
         assertFalse(chess.checkRook("d5","ff"));
+        assertFalse(chess.checkRook("d5",""));
+        assertFalse(chess.checkRook("d5"," "));
 
     }
 
@@ -216,5 +236,9 @@ class ChessTest {
         assertFalse(chess.checkKnight("4e","6g"));
         assertFalse(chess.checkKnight("4e","1b"));
         assertFalse(chess.checkKnight("4e","1h"));
+        assertFalse(chess.checkKnight("4e","9x"));
+        assertFalse(chess.checkKnight("4e",""));
+        assertFalse(chess.checkKnight("4e"," "));
+        assertFalse(chess.checkKnight("4e",null));
     }
 }
